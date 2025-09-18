@@ -1,3 +1,5 @@
+
+
 public class estoque{
     private produto[] produtos = new produto[10];
 
@@ -26,5 +28,16 @@ public class estoque{
         return soma;
     }
 
-    public boolean movimentar()
+    public boolean movimentar(String nome, int qtd, boolean entrada){
+        for (int i = 0; i <produtos.length; i++) {
+            if (produtos[i].getNome().equals(nome)){
+                int qtdAtual = produtos[i].getQuantidade();
+                if (entrada){
+                    produtos[i].setQuantidade(qtdAtual+qtd);
+
+                }
+            }
+        }
+        return entrada;
+    }
 }
