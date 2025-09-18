@@ -8,7 +8,7 @@ public class estoque{
             }else{
                 produtos[i]= p;
             }}}
-    
+
     public String buscarPorNome(String nome){
         for (int i = 0; i<produtos.length;i++){
             if (produtos[i].getNome().equals(nome)){
@@ -26,5 +26,13 @@ public class estoque{
         return soma;
     }
 
-    public boolean movimentar()
-}
+    public boolean movimentar(String nome, int qtd, boolean entrada){
+        if (entrada){
+            for (int i =0;i<produtos.length;i++){
+                if (produtos[i].getNome().equals(p.getNome())){
+
+        } else {
+            return true;
+        }
+    }
+}}}
