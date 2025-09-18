@@ -1,5 +1,3 @@
-
-
 public class estoque{
     private produto[] produtos = new produto[10];
 
@@ -10,7 +8,7 @@ public class estoque{
             }else{
                 produtos[i]= p;
             }}}
-    
+
     public String buscarPorNome(String nome){
         for (int i = 0; i<produtos.length;i++){
             if (produtos[i].getNome().equals(nome)){
@@ -41,3 +39,4 @@ public class estoque{
         return entrada;
     }
 }
+
