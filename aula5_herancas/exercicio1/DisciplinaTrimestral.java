@@ -1,6 +1,20 @@
 public class DisciplinaTrimestral extends Disciplina{
+
+    public DisciplinaTrimestral(float nota1, float nota2){
+        super(nota1,nota2);
+        avaliacao();
+    } 
+
     public void avaliacao(){
-        double soma = (nota1*0.4)+(nota2*0.6);
-        System.out.println("Sua média trimestral é: " + soma);
+        media = (nota1*0.4f)+(nota2*0.6f);
+    }
+
+    public void exibir(){
+        super.exibir();
+
+        System.out.println("Disciplina" + nome);
+        System.out.println("Nota1" + nota1);
+        System.out.println("Nota2" + nota2);
+        System.out.println("Media" + media);
     }
 }

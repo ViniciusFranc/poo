@@ -1,30 +1,16 @@
 public class HistoricoEscolar{
 
-    DisciplinaAnual jefersonAnual = new DisciplinaAnual();
-    DisciplinaSemestral jefersonSemestral = new DisciplinaSemestral();
-    DisciplinaTrimestral jefersonTrimestral = new DisciplinaTrimestral();
+    DisciplinaAnual jefersonAnual = new DisciplinaAnual(7f,7.5f,6f,9f,3f,10f);
+    DisciplinaSemestral jefersonSemestral = new DisciplinaSemestral(7.0f,7.5f,6.0f);
+    DisciplinaTrimestral jefersonTrimestral = new DisciplinaTrimestral(7.0f,7.5f);
 
     public static void main(String[] args) {
         HistoricoEscolar historicoEscolar = new HistoricoEscolar();
-        historicoEscolar.jefersonAnual.setNota1(7.0);
-        historicoEscolar.jefersonAnual.setNota2(7.6);
-        historicoEscolar.jefersonAnual.setNota3(6.0);
-        historicoEscolar.jefersonAnual.setNota4(9.0);
-        historicoEscolar.jefersonAnual.setNota5(3.0);
-        historicoEscolar.jefersonAnual.setNota6(10.0);
 
-        historicoEscolar.jefersonSemestral.setNota1(7.0);
-        historicoEscolar.jefersonSemestral.setNota2(7.6);
-        historicoEscolar.jefersonSemestral.setNota3(6.0);
+        historicoEscolar.jefersonAnual.exibir();
+        historicoEscolar.jefersonSemestral.exibir();
+        historicoEscolar.jefersonTrimestral.exibir();
 
-        historicoEscolar.jefersonTrimestral.setNota1(7.0);
-        historicoEscolar.jefersonTrimestral.setNota2(7.6);
-
-        historicoEscolar.jefersonAnual.avaliacao();
-        historicoEscolar.jefersonSemestral.avaliacao();
-        historicoEscolar.jefersonTrimestral.avaliacao();
-
-        public boolean verificarNota (Disciplina d){}
     }
 
 }
