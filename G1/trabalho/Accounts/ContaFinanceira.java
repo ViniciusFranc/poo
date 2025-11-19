@@ -1,4 +1,10 @@
-public abstract  class ContaFinanceira {
+public abstract class ContaFinanceira {
     protected double Saldo;
-    protected void movimentar(){};
+    protected abstract void debito();
+    protected abstract void credito();
+    protected abstract void transferencia();
+
+    public ContaFinanceira (double SaldoInicial){
+        this.Saldo=SaldoInicial;
+    }
 }
