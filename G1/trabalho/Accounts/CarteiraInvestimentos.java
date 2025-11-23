@@ -1,3 +1,4 @@
+package Accounts;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,16 +15,14 @@ public class CarteiraInvestimentos extends ContaFinanceira{
     
 
     @Override
-    public void ConsultarSaldo(double valor) {
+    public void ConsultarSaldo() {
         System.out.println("Valor total do portfolio: " + Saldo);
     }
 
 
     @Override
     public void SaidaValor(double valor) {
-        if (Saldo > valor){
         this.Saldo -= valor;
-        }
     }
 
 
@@ -52,11 +51,12 @@ public class CarteiraInvestimentos extends ContaFinanceira{
         for (String chave : investimentosMap.keySet()) {
             String[] Key = chave.split(",");
             if ("hoje".equals(Key[0])) {
-                System.out.println(Key[0]);
-                investimentosMap.remove(Key[0]);
+                System.out.println(chave + " " + investimentosMap.get(chave));
+                SaidaValor(investimentosMap.get(chave).getValor());
+                investimentosMap.remove(chave);
             }
         }
-
+        System.out.println(investimentosMap);
         
     }
     

@@ -1,3 +1,4 @@
+package Accounts;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +13,9 @@ public class CartaoCredito extends ContaFinanceira{
         this.limiteTotal = limiteTotal;
     }
 
-    @Override
-    public void ConsultarSaldo(double valor) {
-        System.out.println(limiteTotal);
+ @Override
+    public void ConsultarSaldo() {
+        System.out.println("Valor total do portfolio: " + Saldo);
     }
  
     @Override

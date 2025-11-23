@@ -1,6 +1,8 @@
+package Accounts;
+
 public class Investimentos {
 
-    protected Double valor;
+    protected double valor;
     protected double rentabilidade;
     protected String dataPayback;
 
@@ -9,4 +11,17 @@ public class Investimentos {
     this.valor=valor;
     this.dataPayback = dataPayback;
     }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public double getRentabilidade() {
+        return rentabilidade;
+    }
+
+    public String getDataPayback() {
+        return dataPayback;
+    }
+
 }

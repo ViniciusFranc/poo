@@ -1,3 +1,5 @@
+package Accounts;
+
 public class Cofrinho extends ContaFinanceira {
     
     public Cofrinho(double SaldoInicial) {
@@ -5,13 +7,8 @@ public class Cofrinho extends ContaFinanceira {
     }
 
     @Override
-    public void ConsultarSaldo(double valor) {
-
-        if (Saldo > valor){
-        this.Saldo -= valor;
-        }else{
-        System.out.println("Saldo insuficiente");
-        }
+    public void ConsultarSaldo() {
+        System.out.println("Valor total do portfolio: " + Saldo);
     }
 
     @Override
