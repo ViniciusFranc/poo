@@ -5,7 +5,7 @@ public class ContaDigital extends ContaFinanceira{
     }
 
     @Override
-    protected void ConsultarSaldo(double valor) {
+    public void ConsultarSaldo(double valor) {
 
         if (Saldo > valor){
         this.Saldo -= valor;
@@ -15,7 +15,7 @@ public class ContaDigital extends ContaFinanceira{
     }
 
     @Override
-    protected void SaidaValor(double valor) {
+    public void SaidaValor(double valor) {
         if (Saldo > valor){
         this.Saldo -= valor;
         }else{
@@ -24,7 +24,7 @@ public class ContaDigital extends ContaFinanceira{
     }
 
     @Override
-    protected void EntradaValor(double valor) {
+    public void EntradaValor(double valor) {
         this.Saldo += valor;
     }
     
