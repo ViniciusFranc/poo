@@ -1,19 +1,31 @@
 public class ContaDigital extends ContaFinanceira{
-        
+
     public ContaDigital(double SaldoInicial) {
         super(SaldoInicial);
     }
 
     @Override
-    protected void transferencia() {
+    protected void ConsultarSaldo(double valor) {
+
+        if (Saldo > valor){
+        this.Saldo -= valor;
+        }else{
+        System.out.println("Saldo insuficiente");
+        }
     }
 
     @Override
-    protected void credito() {
+    protected void SaidaValor(double valor) {
+        if (Saldo > valor){
+        this.Saldo -= valor;
+        }else{
+        System.out.println("Saldo insuficiente");
+        }
     }
 
     @Override
-    protected void debito() {
+    protected void EntradaValor(double valor) {
+        this.Saldo += valor;
     }
     
 }
