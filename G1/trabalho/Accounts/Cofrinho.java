@@ -8,7 +8,7 @@ public class Cofrinho extends ContaFinanceira {
 
     @Override
     public void ConsultarSaldo() {
-        System.out.println("Valor total do portfolio: " + Saldo);
+        System.out.println("Valor de dinheiro no Cofrinho: " + Saldo);
     }
 
     @Override

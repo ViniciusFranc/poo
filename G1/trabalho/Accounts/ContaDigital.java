@@ -8,7 +8,7 @@ public class ContaDigital extends ContaFinanceira{
 
     @Override
     public void ConsultarSaldo() {
-        System.out.println("Valor total do portfolio: " + Saldo);
+        System.out.println("Valor saldo conta digital: " + Saldo);
     }
 
     @Override

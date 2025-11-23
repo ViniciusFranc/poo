@@ -16,5 +16,21 @@ public class Lancamentos {
         invest.ConsultarSaldo();
         carteira.RemoverInvestimento("hoje");
         invest.ConsultarSaldo();
+
+
+
+
+
+        ContaFinanceira credito = new CartaoCredito(10000d);
+        credito.ConsultarSaldo();
+        credito.SaidaValor(5000d);
+        credito.ConsultarSaldo();
+        credito.SaidaValor(2000d);
+        credito.ConsultarSaldo();
+        credito.EntradaValor(2000d);
+        credito.ConsultarSaldo();
+        credito.EntradaValor(5000d);
+        credito.ConsultarSaldo();
+
     }
 }

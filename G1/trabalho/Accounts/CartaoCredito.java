@@ -5,8 +5,9 @@ import java.util.Map;
 
 public class CartaoCredito extends ContaFinanceira{
 
+    private int ComprasCounter = 0;
     private double limiteTotal;
-    private Map<String, Double> PgtosPendentesMap = new HashMap<>();
+    private Map<Integer, Double> PgtosPendentesMap = new HashMap<>();
 
   public CartaoCredito(double limiteTotal) {
         super(0);
@@ -15,23 +16,29 @@ public class CartaoCredito extends ContaFinanceira{
 
  @Override
     public void ConsultarSaldo() {
-        System.out.println("Valor total do portfolio: " + Saldo);
+        System.out.println("Valor total Limite: " + limiteTotal);
     }
  
     @Override
     public void SaidaValor(double valor) {
         if (limiteTotal > valor){
-        this.limiteTotal -= valor;
-        // adicionar tracking no map ??? n sei ainda
+            this.limiteTotal -= valor;
+            PgtosPendentesMap.put(ComprasCounter, valor);
+            ComprasCounter +=1;
         }else{
-        System.out.println("limite insuficiente");
+            System.out.println("limite insuficiente");
         }
     }
 
     @Override
     public void EntradaValor(double valor) {
-        this.limiteTotal += valor;
-        // adicionar funcionalidade de remover pagamento pendente do map.
+        if (PgtosPendentesMap.containsValue(valor)){
+            for (Integer chave : PgtosPendentesMap.keySet()){
+                if (PgtosPendentesMap.get(chave) == valor){
+                    PgtosPendentesMap.remove(chave);
+                    this.limiteTotal += valor;
+                }
+            }
+        }
     }
-    
 }

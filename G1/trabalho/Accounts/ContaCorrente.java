@@ -8,7 +8,7 @@ public class ContaCorrente extends ContaFinanceira{
 
     @Override
     public void ConsultarSaldo() {
-        System.out.println("Valor total do portfolio: " + Saldo);
+        System.out.println("Valor saldo conta corrente: " + Saldo);
     }
 
     @Override
