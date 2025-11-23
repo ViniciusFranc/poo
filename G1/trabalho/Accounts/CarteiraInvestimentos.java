@@ -3,8 +3,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CarteiraInvestimentos extends ContaFinanceira{
-    
-    private Map<String, Investimentos> investimentosMap = new HashMap<String,Investimentos>();
+
+    private int InvestCounter = 0;
+    private Map<String, Investimentos> investimentosMap = new HashMap<>();
 
 
     public CarteiraInvestimentos(double SaldoInicial) {
@@ -22,8 +23,6 @@ public class CarteiraInvestimentos extends ContaFinanceira{
     public void SaidaValor(double valor) {
         if (Saldo > valor){
         this.Saldo -= valor;
-        // adicionar tracking no map
-        // possivel saida de resgate invest e entrada direta em conta corrente/digital
         }
     }
 
@@ -31,13 +30,34 @@ public class CarteiraInvestimentos extends ContaFinanceira{
     @Override
     public void EntradaValor(double valor) {
         this.Saldo += valor;
-    // adicionar tracking no map
     }
 
-    public void CadastrarInvestimento(double valor, double rentabilidade) {
+    public void CadastrarInvestimento(double valor, double rentabilidade, String dataPayback) {
+
+        String investMapKey = dataPayback+ "," + InvestCounter;
+
         EntradaValor(valor);
-        Investimentos investimento = new Investimentos(valor, rentabilidade);
-        // adicionar uma chave : objeto no Map.
+
+        Investimentos investimento = new Investimentos(valor, rentabilidade, dataPayback);
+
+        investimentosMap.put(investMapKey, investimento);
+
+        InvestCounter +=1;
+    }
+
+    public void RemoverInvestimento(String dataPayback){
+
+        System.out.println("Extrato das Datas de retorno de seus investimentos: ");
+
+        for (String chave : investimentosMap.keySet()) {
+            String[] Key = chave.split(",");
+            if ("hoje".equals(Key[0])) {
+                System.out.println(Key[0]);
+                investimentosMap.remove(Key[0]);
+            }
+        }
+
+        
     }
     
 }
