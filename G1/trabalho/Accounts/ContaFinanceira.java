@@ -9,4 +9,6 @@ public abstract class ContaFinanceira {
     public ContaFinanceira (double SaldoInicial){
         this.Saldo=SaldoInicial;
     }
+
+    public abstract double getSaldo();
 }

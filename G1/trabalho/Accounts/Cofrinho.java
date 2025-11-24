@@ -25,4 +25,7 @@ public class Cofrinho extends ContaFinanceira {
         this.Saldo += valor;
     }
     
+    public double getSaldo() {
+        return Saldo;
+    }
 }

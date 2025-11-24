@@ -41,4 +41,8 @@ public class CartaoCredito extends ContaFinanceira{
             }
         }
     }
+
+    public double getSaldo() {
+        return limiteTotal;
+    }
 }

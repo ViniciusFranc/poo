@@ -24,5 +24,8 @@ public class ContaDigital extends ContaFinanceira{
     public void EntradaValor(double valor) {
         this.Saldo += valor;
     }
-    
+
+    public double getSaldo() {
+        return Saldo;
+    }
 }

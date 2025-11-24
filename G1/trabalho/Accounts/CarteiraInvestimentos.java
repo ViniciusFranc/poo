@@ -1,18 +1,12 @@
 package Accounts;
 
-import java.util.HashMap;
-import java.util.Map;
+public class CarteiraInvestimentos extends ContaFinanceira implements IInvestidor{
 
-public class CarteiraInvestimentos extends ContaFinanceira{
-
-    private int InvestCounter = 0;
-    private Map<String, Investimentos> investimentosMap = new HashMap<>();
-
+    private GerenciadorInvestimentos gerenciador = new GerenciadorInvestimentos();
 
     public CarteiraInvestimentos(double SaldoInicial) {
         super(SaldoInicial);
     }
-    
 
     @Override
     public void ConsultarSaldo() {
@@ -31,33 +25,26 @@ public class CarteiraInvestimentos extends ContaFinanceira{
         this.Saldo += valor;
     }
 
+
+    @Override
+    public double RemoverInvestimento(String dataPayback) {
+        double valorSaida = gerenciador.RemoverInvestimento(dataPayback);
+        this.SaidaValor(valorSaida);
+        return valorSaida;
+    }
+
+    @Override
     public void CadastrarInvestimento(double valor, double rentabilidade, String dataPayback) {
-
-        String investMapKey = dataPayback+ "," + InvestCounter;
-
-        EntradaValor(valor);
-
-        Investimentos investimento = new Investimentos(valor, rentabilidade, dataPayback);
-
-        investimentosMap.put(investMapKey, investimento);
-
-        InvestCounter +=1;
+        gerenciador.CadastrarInvestimento(Saldo, Saldo, dataPayback);
+        this.EntradaValor(valor);
     }
-
-    public void RemoverInvestimento(String dataPayback){
-
-        System.out.println("Extrato das Datas de retorno de seus investimentos: ");
-
-        for (String chave : investimentosMap.keySet()) {
-            String[] Key = chave.split(",");
-            if ("hoje".equals(Key[0])) {
-                System.out.println(chave + " " + investimentosMap.get(chave));
-                SaidaValor(investimentosMap.get(chave).getValor());
-                investimentosMap.remove(chave);
-            }
-        }
-        System.out.println(investimentosMap);
-        
-    }
+                    
     
+    public double getSaldo() {
+        return Saldo;
+    }
+
+    
+
 }
+

@@ -1,13 +1,16 @@
 package Users;
 
+import Accounts.ContaFinanceira;
+import java.util.ArrayList;
+
 public abstract class Usuario{
     protected String Nome;
     protected int Id;
-    protected String contas;
+    protected ArrayList<ContaFinanceira> contas;
     protected String TipoPerfil;
     protected String Permissoes;
 
-    public Usuario(int Id, String Nome, String Permissoes, String TipoPerfil, String contas) {
+    public Usuario(int Id, String Nome, String Permissoes, String TipoPerfil, ArrayList<ContaFinanceira> contas) {
         this.Id = Id;
         this.Nome = Nome;
         this.Permissoes = Permissoes;

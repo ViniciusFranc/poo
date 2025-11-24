@@ -24,5 +24,9 @@ public class ContaCorrente extends ContaFinanceira{
     public void EntradaValor(double valor) {
         this.Saldo += valor;
     }
-    
+
+    @Override
+    public double getSaldo() {
+        return Saldo;
+    }
 }
