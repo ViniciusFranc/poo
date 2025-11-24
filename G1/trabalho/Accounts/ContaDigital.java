@@ -1,5 +1,7 @@
 package Accounts;
 
+import Exceptions.*;
+
 public class ContaDigital extends ContaFinanceira{
 
     private double SaldoInicial;
@@ -15,13 +17,6 @@ public class ContaDigital extends ContaFinanceira{
     }
 
     @Override
-<<<<<<< Updated upstream
-    public void SaidaValor(double valor) {
-        if (Saldo > valor){
-        this.Saldo -= valor;
-        }else{
-        System.out.println("Saldo insuficiente");
-=======
     public void SaidaValor(double valor) throws  SaldoInsuficienteException {
         try{
         if (Saldo > valor){
@@ -33,7 +28,6 @@ public class ContaDigital extends ContaFinanceira{
         }finally{
             if (Saldo < (SaldoInicial*0.15)){
                 System.out.println("!!! Seu saldo esta abaixo de 15% do valor inicial");
->>>>>>> Stashed changes
         }
     }
     }

@@ -1,5 +1,7 @@
 package Accounts;
 
+import Exceptions.*;
+
 public class Cofrinho extends ContaFinanceira {
     
     private double SaldoInicial;
@@ -19,16 +21,12 @@ public class Cofrinho extends ContaFinanceira {
         if (Saldo > valor){
         this.Saldo -= valor;
         }else{
-<<<<<<< Updated upstream
-        System.out.println("Saldo insuficiente");
-=======
             throw new SaldoInsuficienteException("Saldo insuficiente para concluir a operacao.");}
         }catch(SaldoInsuficienteException msg ){
             System.out.println(msg);
         }finally{
             if (Saldo < (SaldoInicial*0.15)){
                 System.out.println("!!! Seu saldo esta abaixo de 15% do valor inicial");
->>>>>>> Stashed changes
         }
     }
     }

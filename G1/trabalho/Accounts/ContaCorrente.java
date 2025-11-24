@@ -1,5 +1,7 @@
 package Accounts;
 
+import Exceptions.*;
+
 public class ContaCorrente extends ContaFinanceira{
     
     private double SaldoInicial;

@@ -1,5 +1,6 @@
 package Accounts;
 
+import Exceptions.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,9 +28,6 @@ public class CartaoCredito extends ContaFinanceira{
             PgtosPendentesMap.put(ComprasCounter, valor);
             ComprasCounter +=1;
         }else{
-<<<<<<< Updated upstream
-            System.out.println("limite insuficiente");
-=======
             throw new SaldoInsuficienteException("Limite insuficiente para finalizar a compra.");
         }
         }catch(SaldoInsuficienteException msg){
@@ -38,7 +36,6 @@ public class CartaoCredito extends ContaFinanceira{
             if (limiteTotal < limiteTotal*0.15){
                 System.out.println("!!! uso do limite ultrapassou 85%");
             }
->>>>>>> Stashed changes
         }
     }
 
