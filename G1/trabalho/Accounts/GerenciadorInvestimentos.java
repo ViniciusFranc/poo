@@ -26,7 +26,7 @@ public class GerenciadorInvestimentos implements IInvestidor{
     @Override
     public double RemoverInvestimento(String dataPayback){
         double valor = 0;
-        ArrayList<String> removeInverst = new ArrayList<String>();
+        ArrayList<String> removeInverst = new ArrayList<>();
         System.out.println("Extrato das Datas de retorno de seus investimentos: ");
 
         for (String chave : investimentosMap.keySet()) {
