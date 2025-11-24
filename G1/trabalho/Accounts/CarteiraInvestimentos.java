@@ -3,6 +3,7 @@ package Accounts;
 import Exceptions.*;
 public class CarteiraInvestimentos extends ContaFinanceira implements IInvestidor{
 
+    @SuppressWarnings("FieldMayBeFinal")
     private GerenciadorInvestimentos gerenciador = new GerenciadorInvestimentos();
 
     public CarteiraInvestimentos(double SaldoInicial) {
@@ -17,7 +18,7 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
 
     @Override
     public void SaidaValor(double valor) throws SaldoInsuficienteException{
-        if(Saldo < valor){
+        if(Saldo > valor){
         this.Saldo -= valor;
         }else{
         throw new SaldoInsuficienteException("saldo insuficiente");
@@ -39,7 +40,7 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
         return valorSaida;
 
         }catch(SaldoInsuficienteException msg){
-
+    
         }
         return 0d;
 
@@ -47,7 +48,7 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
 
     @Override
     public void CadastrarInvestimento(double valor, double rentabilidade, String dataPayback) {
-        gerenciador.CadastrarInvestimento(Saldo, Saldo, dataPayback);
+        gerenciador.CadastrarInvestimento(valor, rentabilidade, dataPayback);
         this.EntradaValor(valor);
     }
                     

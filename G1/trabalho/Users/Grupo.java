@@ -13,7 +13,7 @@ public class Grupo extends Usuario{
     }
 
     @Override
-    protected void ConsultarSaldoAgregado(){
+    public void ConsultarSaldoAgregado(){
         
         double TotalSaldo = 0;
         for (ContaFinanceira conta : contas) {
@@ -23,7 +23,7 @@ public class Grupo extends Usuario{
     }
 
 @Override
-    protected void AdicionarConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
+    public void AdicionarConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
         try{
             if (Permissoes.equals("ADM")){
         System.out.println("""
@@ -83,7 +83,7 @@ public class Grupo extends Usuario{
     }
 
     @Override
-    protected void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
+    public void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
         try{
             if (Permissoes.equals("ADM")){
         System.out.println("""
@@ -121,7 +121,7 @@ public class Grupo extends Usuario{
     }
 
     @Override
-    protected void listarContas() {
+    public void listarContas() {
         System.out.println(contas);
     }
 }

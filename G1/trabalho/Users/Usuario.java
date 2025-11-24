@@ -11,6 +11,11 @@ public abstract class Usuario{
     protected String TipoPerfil;
     protected String Permissoes;
 
+    public abstract void AdicionarConta()throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
+    public abstract void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
+    public abstract void listarContas();
+    public abstract void ConsultarSaldoAgregado();
+
     public Usuario(int Id, String Nome, String Permissoes, String TipoPerfil, ArrayList<ContaFinanceira> contas) {
         this.Id = Id;
         this.Nome = Nome;
@@ -18,10 +23,5 @@ public abstract class Usuario{
         this.TipoPerfil = TipoPerfil;
         this.contas = contas;
     }
-
-    protected abstract void AdicionarConta()throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
-    protected abstract void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
-    protected abstract void listarContas();
-    protected abstract void ConsultarSaldoAgregado();
 
 }
