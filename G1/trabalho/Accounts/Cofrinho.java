@@ -21,6 +21,12 @@ public class Cofrinho extends ContaFinanceira {
             throw new SaldoInsuficienteException("Saldo insuficiente para concluir a operacao.");}
         }catch(SaldoInsuficienteException msg ){
             System.out.println(msg);
+<<<<<<< Updated upstream
+=======
+        }finally{
+            if (Saldo < (SaldoInicial*0.15)){
+                System.out.println("!!! Seu saldo esta abaixo de 15% do valor inicial");
+>>>>>>> Stashed changes
         }
     }
 
