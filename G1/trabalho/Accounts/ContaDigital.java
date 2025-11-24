@@ -1,5 +1,7 @@
 package Accounts;
 
+import Exceptions.*;
+
 public class ContaDigital extends ContaFinanceira{
 
     public ContaDigital(double SaldoInicial) {
@@ -13,10 +15,13 @@ public class ContaDigital extends ContaFinanceira{
 
     @Override
     public void SaidaValor(double valor) {
+        try{
         if (Saldo > valor){
         this.Saldo -= valor;
         }else{
-        System.out.println("Saldo insuficiente");
+            throw new SaldoInsuficienteException("Saldo insuficiente para concluir a operacao.");}
+        }catch(SaldoInsuficienteException msg ){
+            System.out.println(msg);
         }
     }
 
@@ -25,6 +30,7 @@ public class ContaDigital extends ContaFinanceira{
         this.Saldo += valor;
     }
 
+    @Override
     public double getSaldo() {
         return Saldo;
     }

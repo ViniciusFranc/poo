@@ -1,6 +1,7 @@
 package Users;
 
 import Accounts.ContaFinanceira;
+import Exceptions.*;
 import java.util.ArrayList;
 
 public abstract class Usuario{
@@ -18,8 +19,8 @@ public abstract class Usuario{
         this.contas = contas;
     }
 
-    protected abstract void AdicionarConta();
-    protected abstract void RemoverConta();
+    protected abstract void AdicionarConta()throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
+    protected abstract void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
     protected abstract void listarContas();
     protected abstract void ConsultarSaldoAgregado();
 

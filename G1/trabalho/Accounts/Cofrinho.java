@@ -1,5 +1,6 @@
 package Accounts;
 
+import Exceptions.*;
 public class Cofrinho extends ContaFinanceira {
     
     public Cofrinho(double SaldoInicial) {
@@ -12,11 +13,14 @@ public class Cofrinho extends ContaFinanceira {
     }
 
     @Override
-    public void SaidaValor(double valor) {
+    public void SaidaValor(double valor) throws SaldoInsuficienteException {
+        try{
         if (Saldo > valor){
         this.Saldo -= valor;
         }else{
-        System.out.println("Saldo insuficiente");
+            throw new SaldoInsuficienteException("Saldo insuficiente para concluir a operacao.");}
+        }catch(SaldoInsuficienteException msg ){
+            System.out.println(msg);
         }
     }
 
@@ -25,6 +29,7 @@ public class Cofrinho extends ContaFinanceira {
         this.Saldo += valor;
     }
     
+    @Override
     public double getSaldo() {
         return Saldo;
     }

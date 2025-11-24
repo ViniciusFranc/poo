@@ -1,5 +1,6 @@
 package Accounts;
 
+import Exceptions.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,15 +21,20 @@ public class CartaoCredito extends ContaFinanceira{
     }
  
     @Override
-    public void SaidaValor(double valor) {
+    public void SaidaValor(double valor) throws SaldoInsuficienteException{
+        try{
         if (limiteTotal > valor){
             this.limiteTotal -= valor;
             PgtosPendentesMap.put(ComprasCounter, valor);
             ComprasCounter +=1;
         }else{
-            System.out.println("limite insuficiente");
+            throw new SaldoInsuficienteException("Limite insuficiente para finalizar a compra.");
+        }
+        }catch(SaldoInsuficienteException msg){
+            System.out.println(msg);
         }
     }
+    
 
     @Override
     public void EntradaValor(double valor) {
@@ -42,6 +48,7 @@ public class CartaoCredito extends ContaFinanceira{
         }
     }
 
+    @Override
     public double getSaldo() {
         return limiteTotal;
     }

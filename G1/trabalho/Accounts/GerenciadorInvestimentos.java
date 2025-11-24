@@ -9,6 +9,7 @@ public class GerenciadorInvestimentos implements IInvestidor{
     private int InvestCounter = 0;
     private Map<String, Investimentos> investimentosMap = new HashMap<>();
 
+    @Override
     public void CadastrarInvestimento(double valor, double rentabilidade, String dataPayback) {
 
         String investMapKey = dataPayback+ "," + InvestCounter;
@@ -21,6 +22,7 @@ public class GerenciadorInvestimentos implements IInvestidor{
         InvestCounter +=1;
     }
 
+    @Override
     public double RemoverInvestimento(String dataPayback){
         double valor = 0;
         System.out.println("Extrato das Datas de retorno de seus investimentos: ");

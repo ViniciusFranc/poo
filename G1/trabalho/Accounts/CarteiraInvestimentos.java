@@ -1,5 +1,6 @@
 package Accounts;
 
+import Exceptions.*;
 public class CarteiraInvestimentos extends ContaFinanceira implements IInvestidor{
 
     private GerenciadorInvestimentos gerenciador = new GerenciadorInvestimentos();
@@ -15,8 +16,12 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
 
 
     @Override
-    public void SaidaValor(double valor) {
+    public void SaidaValor(double valor) throws SaldoInsuficienteException{
+        if(Saldo < valor){
         this.Saldo -= valor;
+        }else{
+        throw new SaldoInsuficienteException("saldo insuficiente");
+        }
     }
 
 
@@ -28,9 +33,15 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
 
     @Override
     public double RemoverInvestimento(String dataPayback) {
+        try{
         double valorSaida = gerenciador.RemoverInvestimento(dataPayback);
         this.SaidaValor(valorSaida);
         return valorSaida;
+
+        }catch(SaldoInsuficienteException msg){
+
+        }
+        return 0d;
     }
 
     @Override
@@ -39,7 +50,7 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
         this.EntradaValor(valor);
     }
                     
-    
+    @Override
     public double getSaldo() {
         return Saldo;
     }
