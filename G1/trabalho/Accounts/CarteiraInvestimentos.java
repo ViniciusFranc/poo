@@ -17,11 +17,7 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
 
     @Override
     public void SaidaValor(double valor) throws SaldoInsuficienteException{
-<<<<<<< Updated upstream
         if(Saldo < valor){
-=======
-        if(Saldo > valor){
->>>>>>> Stashed changes
         this.Saldo -= valor;
         }else{
         throw new SaldoInsuficienteException("saldo insuficiente");
@@ -46,10 +42,7 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
 
         }
         return 0d;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
     }
 
     @Override
