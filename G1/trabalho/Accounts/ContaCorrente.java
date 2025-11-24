@@ -4,6 +4,7 @@ import Exceptions.*;
 
 public class ContaCorrente extends ContaFinanceira{
     
+    @SuppressWarnings("FieldMayBeFinal")
     private double SaldoInicial;
     
     public ContaCorrente(double SaldoInicial) {

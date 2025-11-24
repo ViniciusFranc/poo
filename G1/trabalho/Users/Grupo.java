@@ -1,6 +1,7 @@
 package Users;
 
 import Accounts.*;
+import Exceptions.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,11 +13,7 @@ public class Grupo extends Usuario{
     }
 
     @Override
-<<<<<<< Updated upstream
-    protected void ConsultarSaldoAgregado() {
-=======
     public void ConsultarSaldoAgregado(){
->>>>>>> Stashed changes
         
         double TotalSaldo = 0;
         for (ContaFinanceira conta : contas) {
@@ -26,13 +23,9 @@ public class Grupo extends Usuario{
     }
 
 @Override
-<<<<<<< Updated upstream
-    protected void AdicionarConta() {
-=======
     public void AdicionarConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
         try{
             if (Permissoes.equals("ADM")){
->>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -74,19 +67,25 @@ public class Grupo extends Usuario{
                 double ValorSaldo5 = saldo5.nextDouble();
                 contas.add(new CarteiraInvestimentos(ValorSaldo5));
             }
-            default -> throw new AssertionError();
+            default -> throw new CategoriaNaoEncontradaException("Categoria nao encontrada, revise as opcoes e selecione uma valida.");
         }
+
+            }else{
+                throw new UsuarioSemPermissaoException("funcionalidade disponivel apenas para administradores da conta");
+                }
+
+        }catch(UsuarioSemPermissaoException msg){
+            System.out.println("Erro de Permissao: " + msg);
+        }catch(CategoriaNaoEncontradaException msg){
+            System.out.println("Entrada Invalida: "+msg);
+    }
 
     }
 
     @Override
-<<<<<<< Updated upstream
-    protected void RemoverConta() {
-=======
     public void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
         try{
             if (Permissoes.equals("ADM")){
->>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -110,6 +109,12 @@ public class Grupo extends Usuario{
             } else if (TipoConta == 5 && conta instanceof CarteiraInvestimentos) {
                 contas.remove(conta);
             }
+        }
+            }else{
+                throw new UsuarioSemPermissaoException("funcionalidade disponivel apenas para administradores da conta");
+            }
+        }catch(UsuarioSemPermissaoException msg){
+            System.out.println("Erro de Permissao: " + msg);
         }
 
 

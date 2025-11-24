@@ -1,6 +1,7 @@
 package Users;
 
 import Accounts.*;
+import Exceptions.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,19 +13,6 @@ public class UsuarioSolo extends Usuario{
     }
 
     @Override
-<<<<<<< Updated upstream
-    protected void ConsultarSaldoAgregado() {
-        
-        double TotalSaldo = 0;
-        for (ContaFinanceira conta : contas) {
-            TotalSaldo += conta.getSaldo();
-        }
-        System.out.println("Saldo total de contas: "+TotalSaldo);
-    }
-
-@Override
-    protected void AdicionarConta() {
-=======
     public void ConsultarSaldoAgregado() {
 
                 double TotalSaldo = 0;
@@ -39,7 +27,6 @@ public class UsuarioSolo extends Usuario{
     public void AdicionarConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException {
         try{
 
->>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -81,18 +68,18 @@ public class UsuarioSolo extends Usuario{
                 double ValorSaldo5 = saldo5.nextDouble();
                 contas.add(new CarteiraInvestimentos(ValorSaldo5));
             }
-            default -> throw new AssertionError();
+            default -> throw new CategoriaNaoEncontradaException("Categoria nao encontrada, revise as opcoes e selecione uma valida.");
+        }
+
+        }catch(CategoriaNaoEncontradaException msg){
+            System.out.println("Entrada Invalida: "+msg);
         }
 
     }
 
     @Override
-<<<<<<< Updated upstream
-    protected void RemoverConta() {
-=======
     public void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
         try{
->>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -115,7 +102,13 @@ public class UsuarioSolo extends Usuario{
                 contas.remove(conta);
             } else if (TipoConta == 5 && conta instanceof CarteiraInvestimentos) {
                 contas.remove(conta);
+            } else {
+                throw new CategoriaNaoEncontradaException("Categoria nao encontrada, revise as opcoes e selecione uma valida.");
             }
+        }
+
+        }catch(CategoriaNaoEncontradaException msg){
+            System.out.println("Entrada Invalida: "+msg);
         }
 
 

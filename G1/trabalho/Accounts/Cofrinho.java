@@ -1,9 +1,9 @@
 package Accounts;
 
 import Exceptions.*;
-
 public class Cofrinho extends ContaFinanceira {
     
+    @SuppressWarnings("FieldMayBeFinal")
     private double SaldoInicial;
     
     public Cofrinho(double SaldoInicial) {
@@ -17,7 +17,8 @@ public class Cofrinho extends ContaFinanceira {
     }
 
     @Override
-    public void SaidaValor(double valor) {
+    public void SaidaValor(double valor) throws SaldoInsuficienteException {
+        try{
         if (Saldo > valor){
         this.Saldo -= valor;
         }else{
@@ -36,6 +37,7 @@ public class Cofrinho extends ContaFinanceira {
         this.Saldo += valor;
     }
     
+    @Override
     public double getSaldo() {
         return Saldo;
     }

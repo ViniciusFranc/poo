@@ -22,7 +22,8 @@ public class CartaoCredito extends ContaFinanceira{
     }
  
     @Override
-    public void SaidaValor(double valor) {
+    public void SaidaValor(double valor) throws SaldoInsuficienteException{
+        try{
         if (limiteTotal > valor){
             this.limiteTotal -= valor;
             PgtosPendentesMap.put(ComprasCounter, valor);
@@ -38,6 +39,7 @@ public class CartaoCredito extends ContaFinanceira{
             }
         }
     }
+    
 
     @Override
     public void EntradaValor(double valor) {
@@ -51,6 +53,7 @@ public class CartaoCredito extends ContaFinanceira{
         }
     }
 
+    @Override
     public double getSaldo() {
         return limiteTotal;
     }
