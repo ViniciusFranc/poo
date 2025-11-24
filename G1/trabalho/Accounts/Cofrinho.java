@@ -3,6 +3,7 @@ package Accounts;
 import Exceptions.*;
 public class Cofrinho extends ContaFinanceira {
     
+    @SuppressWarnings("FieldMayBeFinal")
     private double SaldoInicial;
     
     public Cofrinho(double SaldoInicial) {

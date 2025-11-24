@@ -11,10 +11,10 @@ public abstract class Usuario{
     protected String TipoPerfil;
     protected String Permissoes;
 
-    public abstract void AdicionarConta()throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
-    public abstract void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
-    public abstract void listarContas();
-    public abstract void ConsultarSaldoAgregado();
+    protected abstract void AdicionarConta()throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
+    protected abstract void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
+    protected abstract void listarContas();
+    protected abstract void ConsultarSaldoAgregado();
 
     public Usuario(int Id, String Nome, String Permissoes, String TipoPerfil, ArrayList<ContaFinanceira> contas) {
         this.Id = Id;
