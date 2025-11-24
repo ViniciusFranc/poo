@@ -7,6 +7,7 @@ public class CartaoCredito extends ContaFinanceira{
 
     private int ComprasCounter = 0;
     private double limiteTotal;
+    @SuppressWarnings("FieldMayBeFinal")
     private Map<Integer, Double> PgtosPendentesMap = new HashMap<>();
 
   public CartaoCredito(double limiteTotal) {
@@ -26,7 +27,18 @@ public class CartaoCredito extends ContaFinanceira{
             PgtosPendentesMap.put(ComprasCounter, valor);
             ComprasCounter +=1;
         }else{
+<<<<<<< Updated upstream
             System.out.println("limite insuficiente");
+=======
+            throw new SaldoInsuficienteException("Limite insuficiente para finalizar a compra.");
+        }
+        }catch(SaldoInsuficienteException msg){
+            System.out.println(msg);
+        }finally{
+            if (limiteTotal < limiteTotal*0.15){
+                System.out.println("!!! uso do limite ultrapassou 85%");
+            }
+>>>>>>> Stashed changes
         }
     }
 

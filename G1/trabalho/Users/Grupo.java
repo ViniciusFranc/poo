@@ -12,7 +12,11 @@ public class Grupo extends Usuario{
     }
 
     @Override
+<<<<<<< Updated upstream
     protected void ConsultarSaldoAgregado() {
+=======
+    public void ConsultarSaldoAgregado(){
+>>>>>>> Stashed changes
         
         double TotalSaldo = 0;
         for (ContaFinanceira conta : contas) {
@@ -22,7 +26,13 @@ public class Grupo extends Usuario{
     }
 
 @Override
+<<<<<<< Updated upstream
     protected void AdicionarConta() {
+=======
+    public void AdicionarConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
+        try{
+            if (Permissoes.equals("ADM")){
+>>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -70,7 +80,13 @@ public class Grupo extends Usuario{
     }
 
     @Override
+<<<<<<< Updated upstream
     protected void RemoverConta() {
+=======
+    public void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
+        try{
+            if (Permissoes.equals("ADM")){
+>>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -100,7 +116,7 @@ public class Grupo extends Usuario{
     }
 
     @Override
-    protected void listarContas() {
+    public void listarContas() {
         System.out.println(contas);
     }
 }

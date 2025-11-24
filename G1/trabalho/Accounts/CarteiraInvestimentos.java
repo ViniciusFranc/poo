@@ -2,6 +2,7 @@ package Accounts;
 
 public class CarteiraInvestimentos extends ContaFinanceira implements IInvestidor{
 
+    @SuppressWarnings("FieldMayBeFinal")
     private GerenciadorInvestimentos gerenciador = new GerenciadorInvestimentos();
 
     public CarteiraInvestimentos(double SaldoInicial) {
@@ -15,7 +16,12 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
 
 
     @Override
+<<<<<<< Updated upstream
     public void SaidaValor(double valor) {
+=======
+    public void SaidaValor(double valor) throws SaldoInsuficienteException{
+        if(Saldo > valor){
+>>>>>>> Stashed changes
         this.Saldo -= valor;
     }
 
@@ -31,11 +37,20 @@ public class CarteiraInvestimentos extends ContaFinanceira implements IInvestido
         double valorSaida = gerenciador.RemoverInvestimento(dataPayback);
         this.SaidaValor(valorSaida);
         return valorSaida;
+<<<<<<< Updated upstream
+=======
+
+        }catch(SaldoInsuficienteException msg){
+    
+        }
+        return 0d;
+
+>>>>>>> Stashed changes
     }
 
     @Override
     public void CadastrarInvestimento(double valor, double rentabilidade, String dataPayback) {
-        gerenciador.CadastrarInvestimento(Saldo, Saldo, dataPayback);
+        gerenciador.CadastrarInvestimento(valor, rentabilidade, dataPayback);
         this.EntradaValor(valor);
     }
                     

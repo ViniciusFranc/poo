@@ -12,6 +12,7 @@ public class UsuarioSolo extends Usuario{
     }
 
     @Override
+<<<<<<< Updated upstream
     protected void ConsultarSaldoAgregado() {
         
         double TotalSaldo = 0;
@@ -23,6 +24,22 @@ public class UsuarioSolo extends Usuario{
 
 @Override
     protected void AdicionarConta() {
+=======
+    public void ConsultarSaldoAgregado() {
+
+                double TotalSaldo = 0;
+                for (ContaFinanceira conta : contas) {
+                    TotalSaldo += conta.getSaldo();
+                }
+                System.out.println("Saldo total de contas: "+TotalSaldo);
+
+    }
+
+@Override
+    public void AdicionarConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException {
+        try{
+
+>>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -70,7 +87,12 @@ public class UsuarioSolo extends Usuario{
     }
 
     @Override
+<<<<<<< Updated upstream
     protected void RemoverConta() {
+=======
+    public void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException{
+        try{
+>>>>>>> Stashed changes
         System.out.println("""
                            Menu de Contas: 
                            1 - Conta Corrente.
@@ -100,7 +122,7 @@ public class UsuarioSolo extends Usuario{
     }
 
     @Override
-    protected void listarContas() {
+    public void listarContas() {
         System.out.println(contas);
     }
 
