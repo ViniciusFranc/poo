@@ -3,13 +3,17 @@ package Users;
 import Accounts.*;
 import Exceptions.*;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Grupo extends Usuario{
     
+    private Map<String,Double> ValorPorMembro;
+    
 
-    public Grupo(int Id, String Nome,String Permissoes,String TipoPerfil,ArrayList<ContaFinanceira> contas){
+    public Grupo(int Id, String Nome,String Permissoes,String TipoPerfil,ArrayList<ContaFinanceira> contas, Map<String,Double> ValorPorMembro){
         super(Id, Nome, Permissoes, TipoPerfil, contas);
+        this.ValorPorMembro = ValorPorMembro;
     }
 
     @Override
@@ -123,5 +127,13 @@ public class Grupo extends Usuario{
     @Override
     public void listarContas() {
         System.out.println(contas);
+    }
+
+    public Map<String, Double> getValorPorMembro() {
+        return ValorPorMembro;
+    }
+
+    public void setValorPorMembro(Map<String, Double> ValorPorMembro) {
+        this.ValorPorMembro = ValorPorMembro;
     }
 }

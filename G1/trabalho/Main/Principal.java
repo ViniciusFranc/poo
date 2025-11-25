@@ -65,7 +65,8 @@ public class Principal {
                 "Carlos",
                 "Supermercado",
                 LocalDate.of(2025, 1, 10),
-                150.0
+                150.0,
+                "Despesa"
         );
 
         Lancamento l2 = new Lancamento(
@@ -75,7 +76,9 @@ public class Principal {
                 "Carlos",
                 "Corrida",
                 LocalDate.of(2025, 1, 12),
-                40.0
+                40.0,
+                "Despesa"
+
         );
 
         Lancamento l3 = new Lancamento(
@@ -85,7 +88,9 @@ public class Principal {
                 "Carlos",
                 "Restaurante",
                 LocalDate.of(2025, 2, 5),
-                90.0
+                90.0,
+                "Despesa"
+
         );
 
         mov.AdicionarLancamento(l1);
