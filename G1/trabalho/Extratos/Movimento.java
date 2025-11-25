@@ -2,14 +2,13 @@ package Extratos;
 
 import Main.Lancamento;
 import Users.Grupo;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Movimento implements Serializable{
+public class Movimento{
 
     ArrayList<Lancamento> Extrato= new ArrayList<>();
 
@@ -42,9 +41,6 @@ public class Movimento implements Serializable{
             Extrato.add(l);
         }
     }
-
-
-
 
 
     public ArrayList<Lancamento> ExtratoPerido(LocalDate d1, LocalDate d2){
