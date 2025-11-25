@@ -1,18 +1,22 @@
 package Main;
 
 import Accounts.ContaFinanceira;
+import Users.Usuario;
 import java.time.LocalDate;
 
 public class Lancamento {
+
+    protected String Tipo;
+    protected String TipoUser;
     protected String Categoria;
     protected String Subcategoria;
-    protected String Remetente;
+    protected Usuario Remetente;
     protected String Destinatario;
     protected ContaFinanceira Conta;
     protected LocalDate data;
     protected double valor;
 
-    public Lancamento(String Categoria, ContaFinanceira Conta, String Destinatario, String Remetente, String Subcategoria, LocalDate data, double valor) {
+    public Lancamento(String Categoria, ContaFinanceira Conta, String Destinatario, Usuario Remetente, String Subcategoria, LocalDate data, double valor, String Tipo,String TipoUser) {
         this.Categoria = Categoria;
         this.Conta = Conta;
         this.Destinatario = Destinatario;
@@ -20,6 +24,8 @@ public class Lancamento {
         this.Subcategoria = Subcategoria;
         this.data = data;
         this.valor = valor;
+        this.Tipo = Tipo;
+        this.TipoUser = TipoUser;
     }
 
     public String getCategoria() {
@@ -30,7 +36,7 @@ public class Lancamento {
         return Subcategoria;
     }
 
-    public String getRemetente() {
+    public Usuario getRemetente() {
         return Remetente;
     }
 
@@ -49,6 +55,10 @@ public class Lancamento {
     public double getValor() {
         return valor;
     }
+    
+    public String getTipo() {
+        return Tipo;
+    }
 
     public void setCategoria(String Categoria) {
         this.Categoria = Categoria;
@@ -58,7 +68,7 @@ public class Lancamento {
         this.Subcategoria = Subcategoria;
     }
 
-    public void setRemetente(String Remetente) {
+    public void setRemetente(Usuario Remetente) {
         this.Remetente = Remetente;
     }
 
@@ -76,5 +86,17 @@ public class Lancamento {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
+    }
+
+    public String getTipoUser() {
+        return TipoUser;
+    }
+
+    public void setTipoUser(String TipoUser) {
+        this.TipoUser = TipoUser;
     }
 }

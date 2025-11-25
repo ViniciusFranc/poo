@@ -110,8 +110,6 @@ public class UsuarioSolo extends Usuario{
         }catch(CategoriaNaoEncontradaException msg){
             System.out.println("Entrada Invalida: "+msg);
         }
-
-
     }
 
     @Override

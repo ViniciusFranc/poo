@@ -11,10 +11,10 @@ public abstract class Usuario{
     protected String TipoPerfil;
     protected String Permissoes;
 
-    protected abstract void AdicionarConta()throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
-    protected abstract void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
-    protected abstract void listarContas();
-    protected abstract void ConsultarSaldoAgregado();
+    public abstract void AdicionarConta()throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
+    public abstract void RemoverConta() throws UsuarioSemPermissaoException,CategoriaNaoEncontradaException;
+    public abstract void listarContas();
+    public abstract void ConsultarSaldoAgregado();
 
     public Usuario(int Id, String Nome, String Permissoes, String TipoPerfil, ArrayList<ContaFinanceira> contas) {
         this.Id = Id;
@@ -22,6 +22,46 @@ public abstract class Usuario{
         this.Permissoes = Permissoes;
         this.TipoPerfil = TipoPerfil;
         this.contas = contas;
+    }
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    public ArrayList<ContaFinanceira> getContas() {
+        return contas;
+    }
+
+    public void setContas(ArrayList<ContaFinanceira> contas) {
+        this.contas = contas;
+    }
+
+    public String getTipoPerfil() {
+        return TipoPerfil;
+    }
+
+    public void setTipoPerfil(String TipoPerfil) {
+        this.TipoPerfil = TipoPerfil;
+    }
+
+    public String getPermissoes() {
+        return Permissoes;
+    }
+
+    public void setPermissoes(String Permissoes) {
+        this.Permissoes = Permissoes;
     }
 
 }
